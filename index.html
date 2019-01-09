@@ -319,6 +319,196 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://wolfhan.github.io/2019/01/09/Use-of-ViewModel-with-LiveData-in-Android/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Wolf Han">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Dreamer">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/01/09/Use-of-ViewModel-with-LiveData-in-Android/" class="post-title-link" itemprop="url">Use of ViewModel with LiveData in Android</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-01-09 14:26:21 / Modified: 14:36:21" itemprop="dateCreated datePublished" datetime="2019-01-09T14:26:21+08:00">2019-01-09</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/android/" itemprop="url" rel="index"><span itemprop="name">android</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/01/09/Use-of-ViewModel-with-LiveData-in-Android/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/01/09/Use-of-ViewModel-with-LiveData-in-Android/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>In <a href="https://developer.android.com/topic/libraries/architecture/" target="_blank" rel="noopener">Android Architecture Components</a>,  <a href="https://developer.android.com/reference/android/arch/lifecycle/ViewModel.html" target="_blank" rel="noopener"><code>ViewModel</code></a> and <a href="https://developer.android.com/reference/android/arch/lifecycle/LiveData.html" target="_blank" rel="noopener"><code>LiveData</code></a> are used to change values and notify   observables with respect to android lifecycle. </p>
+<blockquote>
+<p>The <a href="https://developer.android.com/reference/android/arch/lifecycle/ViewModel.html" target="_blank" rel="noopener"><code>ViewModel</code></a> class is designed to store and manage UI-related data in a lifecycle conscious way. The <a href="https://developer.android.com/reference/android/arch/lifecycle/ViewModel.html" target="_blank" rel="noopener"><code>ViewModel</code></a> class allows data to survive configuration changes such as screen rotations.</p>
+</blockquote>
+<blockquote>
+<p><a href="https://developer.android.com/reference/android/arch/lifecycle/LiveData.html" target="_blank" rel="noopener"><code>LiveData</code></a> is an observable data holder class. Unlike a regular observable, LiveData is lifecycle-aware, meaning it respects the lifecycle of other app components, such as activities, fragments, or services. This awareness ensures LiveData only updates app component observers that are in an active lifecycle state.</p>
+</blockquote>
+<h3 id="How-to-use-ViewModel-with-LiveData"><a href="#How-to-use-ViewModel-with-LiveData" class="headerlink" title="How to use ViewModel with LiveData"></a>How to use ViewModel with LiveData</h3><p>Follow these steps to work with <a href="https://developer.android.com/reference/android/arch/lifecycle/ViewModel.html" target="_blank" rel="noopener"><code>ViewModel</code></a> and <a href="https://developer.android.com/reference/android/arch/lifecycle/LiveData.html" target="_blank" rel="noopener"><code>LiveData</code></a> objects:</p>
+<ol>
+<li><p>Create an instance of <a href="https://developer.android.com/reference/android/arch/lifecycle/LiveData.html" target="_blank" rel="noopener"><code>LiveData</code></a> to hold a certain type of data. This is usually done within your <a href="https://developer.android.com/reference/android/arch/lifecycle/ViewModel.html" target="_blank" rel="noopener"><code>ViewModel</code></a> class.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">NameViewModel</span> : <span class="type">ViewModel</span></span>() &#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Create a LiveData with a String</span></span><br><span class="line">    <span class="keyword">val</span> currentName: MutableLiveData&lt;String&gt; <span class="keyword">by</span> lazy &#123;</span><br><span class="line">        MutableLiveData&lt;String&gt;()</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Rest of the ViewModel...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Create an <a href="https://developer.android.com/reference/android/arch/lifecycle/Observer.html" target="_blank" rel="noopener"><code>Observer</code></a> object that defines the <a href="https://developer.android.com/reference/android/arch/lifecycle/Observer.html#onChanged(T" target="_blank" rel="noopener"><code>onChanged()</code></a>) method, which controls what happens when the <a href="https://developer.android.com/reference/android/arch/lifecycle/LiveData.html" target="_blank" rel="noopener"><code>LiveData</code></a> object’s held data changes. You usually create an <a href="https://developer.android.com/reference/android/arch/lifecycle/Observer.html" target="_blank" rel="noopener"><code>Observer</code></a> object in a UI controller, such as an activity or fragment.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">NameActivity</span> : <span class="type">AppCompatActivity</span></span>() &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">lateinit</span> <span class="keyword">var</span> mModel: NameViewModel</span><br><span class="line"></span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onCreate</span><span class="params">(savedInstanceState: <span class="type">Bundle</span>?)</span></span> &#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState)</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Other code to setup the activity...</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// Get the ViewModel.</span></span><br><span class="line">        mModel = ViewModelProviders.of(<span class="keyword">this</span>).<span class="keyword">get</span>(NameViewModel::<span class="class"><span class="keyword">class</span>.<span class="title">java</span>)</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="comment">// Create the observer which updates the UI.</span></span><br><span class="line">        <span class="keyword">val</span> nameObserver = Observer&lt;String&gt; &#123; newName -&gt;</span><br><span class="line">            <span class="comment">// Update the UI, in this case, a TextView.</span></span><br><span class="line">            mNameTextView.text = newName</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Observe the LiveData, passing in this activity as the LifecycleOwner and the observer.</span></span><br><span class="line">        mModel.currentName.observe(<span class="keyword">this</span>, nameObserver)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Attach the <a href="https://developer.android.com/reference/android/arch/lifecycle/Observer.html" target="_blank" rel="noopener"><code>Observer</code></a> object to the <a href="https://developer.android.com/reference/android/arch/lifecycle/LiveData.html" target="_blank" rel="noopener"><code>LiveData</code></a> object using the <a href="https://developer.android.com/reference/android/arch/lifecycle/LiveData.html#observe(android.arch.lifecycle.LifecycleOwner,%0Aandroid.arch.lifecycle.Observer%3CT%3E" target="_blank" rel="noopener"><code>observe()</code></a>) method. The <a href="https://developer.android.com/reference/android/arch/lifecycle/LiveData.html#observe(android.arch.lifecycle.LifecycleOwner,%0Aandroid.arch.lifecycle.Observer%3CT%3E" target="_blank" rel="noopener"><code>observe()</code></a>) method takes a <a href="https://developer.android.com/reference/android/arch/lifecycle/LifecycleOwner.html" target="_blank" rel="noopener"><code>LifecycleOwner</code></a> object. This subscribes the <a href="https://developer.android.com/reference/android/arch/lifecycle/Observer.html" target="_blank" rel="noopener"><code>Observer</code></a> object to the <a href="https://developer.android.com/reference/android/arch/lifecycle/LiveData.html" target="_blank" rel="noopener"><code>LiveData</code></a> object so that it is notified of changes. You usually attach the <a href="https://developer.android.com/reference/android/arch/lifecycle/Observer.html" target="_blank" rel="noopener"><code>Observer</code></a> object in a UI controller, such as an activity or fragment.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mButton.setOnClickListener &#123;</span><br><span class="line">    <span class="keyword">val</span> anotherName = <span class="string">"John Doe"</span></span><br><span class="line">    mModel.currentName.setValue(anotherName)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>This is a simple example that shows you how to use ViewModel and LiveData in Android. You can find more details in <a href="https://developer.android.com/topic/libraries/architecture/livedata" target="_blank" rel="noopener">this</a>.</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://wolfhan.github.io/2018/02/04/简述 Android 单元测试中常用的库/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -1133,7 +1323,7 @@ Assert.assertEquals(expectedIntent.getComponent(), actualIntent.getComponent());
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">4</span>
+                    <span class="site-state-item-count">5</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>

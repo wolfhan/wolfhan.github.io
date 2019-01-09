@@ -96,24 +96,24 @@
 
 
 
-  <meta name="description" content="Collections framework in java language is a very important tool. We can use it to arrange many items together.">
+  <meta name="description" content="In Android Architecture Components,  ViewModel and LiveData are used to change values and notify   observables with respect to android lifecycle.   The ViewModel class is designed to store and manage">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Collections in java">
-<meta property="og:url" content="https://wolfhan.github.io/2017/06/26/Collections-in-java/index.html">
+<meta property="og:title" content="Use of ViewModel with LiveData in Android">
+<meta property="og:url" content="https://wolfhan.github.io/2019/01/09/Use-of-ViewModel-with-LiveData-in-Android/index.html">
 <meta property="og:site_name" content="Dreamer">
-<meta property="og:description" content="Collections framework in java language is a very important tool. We can use it to arrange many items together.">
+<meta property="og:description" content="In Android Architecture Components,  ViewModel and LiveData are used to change values and notify   observables with respect to android lifecycle.   The ViewModel class is designed to store and manage">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-01-09T02:49:51.651Z">
+<meta property="og:updated_time" content="2019-01-09T06:36:21.167Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Collections in java">
-<meta name="twitter:description" content="Collections framework in java language is a very important tool. We can use it to arrange many items together.">
+<meta name="twitter:title" content="Use of ViewModel with LiveData in Android">
+<meta name="twitter:description" content="In Android Architecture Components,  ViewModel and LiveData are used to change values and notify   observables with respect to android lifecycle.   The ViewModel class is designed to store and manage">
 
 
 
 
 
 
-  <link rel="canonical" href="https://wolfhan.github.io/2017/06/26/Collections-in-java/">
+  <link rel="canonical" href="https://wolfhan.github.io/2019/01/09/Use-of-ViewModel-with-LiveData-in-Android/">
 
 
 
@@ -123,7 +123,7 @@
   };
 </script>
 
-  <title>Collections in java | Dreamer</title>
+  <title>Use of ViewModel with LiveData in Android | Dreamer</title>
   
 
 
@@ -322,7 +322,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://wolfhan.github.io/2017/06/26/Collections-in-java/">
+    <link itemprop="mainEntityOfPage" href="https://wolfhan.github.io/2019/01/09/Use-of-ViewModel-with-LiveData-in-Android/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Wolf Han">
@@ -339,7 +339,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Collections in java
+          <h1 class="post-title" itemprop="name headline">Use of ViewModel with LiveData in Android
 
               
             
@@ -365,24 +365,12 @@
                 
               
 
-              <time title="Created: 2017-06-26 20:26:50" itemprop="dateCreated datePublished" datetime="2017-06-26T20:26:50+08:00">2017-06-26</time>
+              <time title="Created: 2019-01-09 14:26:21 / Modified: 14:36:21" itemprop="dateCreated datePublished" datetime="2019-01-09T14:26:21+08:00">2019-01-09</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-01-09 10:49:51" itemprop="dateModified" datetime="2019-01-09T10:49:51+08:00">2019-01-09</time>
               
             
           </span>
@@ -399,7 +387,7 @@
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a></span>
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/android/" itemprop="url" rel="index"><span itemprop="name">android</span></a></span>
 
                 
                 
@@ -414,9 +402,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/06/26/Collections-in-java/#comments" itemprop="discussionUrl">
+                <a href="/2019/01/09/Use-of-ViewModel-with-LiveData-in-Android/#comments" itemprop="discussionUrl">
                 
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/06/26/Collections-in-java/" itemprop="commentCount"></span>
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/01/09/Use-of-ViewModel-with-LiveData-in-Android/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -444,30 +432,26 @@
       
 
       
-        <p>Collections framework in java language is a very important tool. We can use it to arrange</p>
-<p>many items together.</p>
-<a id="more"></a>
-<h2 id="What-is-it"><a href="#What-is-it" class="headerlink" title="What is it"></a>What is it</h2><p>A collections framework is a unified architecture for representing and manipulating collections.</p>
-<p>It includes three ingredients: interface, implementation and algorithm. Its interface defines the</p>
-<p>operations, the implementation implements it, and the algorithm includes its core computation.</p>
-<h2 id="Interfaces-and-implementations"><a href="#Interfaces-and-implementations" class="headerlink" title="Interfaces and implementations"></a>Interfaces and implementations</h2><p>There are many interfaces in them, but there are main five interfaces. They are set, list, queue,</p>
-<p>deque and map. All of them extend collection interface, so they can use the basic operations in </p>
-<p>collection. But these specific interfaces have more powerful.</p>
-<p>Set is a collection that does not contain same item. That is, each item of them must not be the</p>
-<p>same. HashSet, TreeSet and LinkedHashSet are children of it.</p>
-<p>List is a collection that is sequenced in a line, or called sequence. It arrange items in a row,</p>
-<p>that is, each item in it can be access by the position. ArrayList and LinkedList are children of it.</p>
-<p>Queue adds an item from an end, and delete an item from the other end. So, it behaves the FIFO. You </p>
-<p>can find its children in java.util.concurrent package, such as BlockingQueue.</p>
-<p>Deque can add and delete items from both ends which is different from queue. Its children are made </p>
-<p>up of ArrayDeque and LinkedList.</p>
-<p>Map is another collection that is not the child of the collection. It contains keys and values.</p>
-<p>Each key is unique and the key collection is a set in essence. Just like the set, we find HashMap,</p>
-<p>TreeMap and LinkedHashMap are direct children of it.</p>
-<h2 id="Algorithms"><a href="#Algorithms" class="headerlink" title="Algorithms"></a>Algorithms</h2><p>Though these interfaces or implementations are different in specific algorithms, they share some common</p>
-<p>methods, such as sort, shuffle, swap, add, delete and the like.</p>
-<p>Above all are the brief introducation about the collections framework in java. You can use these implementations</p>
-<p>directly or implement your algorithms if they can not meet your demands.</p>
+        <p>In <a href="https://developer.android.com/topic/libraries/architecture/" target="_blank" rel="noopener">Android Architecture Components</a>,  <a href="https://developer.android.com/reference/android/arch/lifecycle/ViewModel.html" target="_blank" rel="noopener"><code>ViewModel</code></a> and <a href="https://developer.android.com/reference/android/arch/lifecycle/LiveData.html" target="_blank" rel="noopener"><code>LiveData</code></a> are used to change values and notify   observables with respect to android lifecycle. </p>
+<blockquote>
+<p>The <a href="https://developer.android.com/reference/android/arch/lifecycle/ViewModel.html" target="_blank" rel="noopener"><code>ViewModel</code></a> class is designed to store and manage UI-related data in a lifecycle conscious way. The <a href="https://developer.android.com/reference/android/arch/lifecycle/ViewModel.html" target="_blank" rel="noopener"><code>ViewModel</code></a> class allows data to survive configuration changes such as screen rotations.</p>
+</blockquote>
+<blockquote>
+<p><a href="https://developer.android.com/reference/android/arch/lifecycle/LiveData.html" target="_blank" rel="noopener"><code>LiveData</code></a> is an observable data holder class. Unlike a regular observable, LiveData is lifecycle-aware, meaning it respects the lifecycle of other app components, such as activities, fragments, or services. This awareness ensures LiveData only updates app component observers that are in an active lifecycle state.</p>
+</blockquote>
+<h3 id="How-to-use-ViewModel-with-LiveData"><a href="#How-to-use-ViewModel-with-LiveData" class="headerlink" title="How to use ViewModel with LiveData"></a>How to use ViewModel with LiveData</h3><p>Follow these steps to work with <a href="https://developer.android.com/reference/android/arch/lifecycle/ViewModel.html" target="_blank" rel="noopener"><code>ViewModel</code></a> and <a href="https://developer.android.com/reference/android/arch/lifecycle/LiveData.html" target="_blank" rel="noopener"><code>LiveData</code></a> objects:</p>
+<ol>
+<li><p>Create an instance of <a href="https://developer.android.com/reference/android/arch/lifecycle/LiveData.html" target="_blank" rel="noopener"><code>LiveData</code></a> to hold a certain type of data. This is usually done within your <a href="https://developer.android.com/reference/android/arch/lifecycle/ViewModel.html" target="_blank" rel="noopener"><code>ViewModel</code></a> class.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">NameViewModel</span> : <span class="type">ViewModel</span></span>() &#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Create a LiveData with a String</span></span><br><span class="line">    <span class="keyword">val</span> currentName: MutableLiveData&lt;String&gt; <span class="keyword">by</span> lazy &#123;</span><br><span class="line">        MutableLiveData&lt;String&gt;()</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Rest of the ViewModel...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Create an <a href="https://developer.android.com/reference/android/arch/lifecycle/Observer.html" target="_blank" rel="noopener"><code>Observer</code></a> object that defines the <a href="https://developer.android.com/reference/android/arch/lifecycle/Observer.html#onChanged(T" target="_blank" rel="noopener"><code>onChanged()</code></a>) method, which controls what happens when the <a href="https://developer.android.com/reference/android/arch/lifecycle/LiveData.html" target="_blank" rel="noopener"><code>LiveData</code></a> object’s held data changes. You usually create an <a href="https://developer.android.com/reference/android/arch/lifecycle/Observer.html" target="_blank" rel="noopener"><code>Observer</code></a> object in a UI controller, such as an activity or fragment.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">NameActivity</span> : <span class="type">AppCompatActivity</span></span>() &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">lateinit</span> <span class="keyword">var</span> mModel: NameViewModel</span><br><span class="line"></span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onCreate</span><span class="params">(savedInstanceState: <span class="type">Bundle</span>?)</span></span> &#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState)</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Other code to setup the activity...</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// Get the ViewModel.</span></span><br><span class="line">        mModel = ViewModelProviders.of(<span class="keyword">this</span>).<span class="keyword">get</span>(NameViewModel::<span class="class"><span class="keyword">class</span>.<span class="title">java</span>)</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="comment">// Create the observer which updates the UI.</span></span><br><span class="line">        <span class="keyword">val</span> nameObserver = Observer&lt;String&gt; &#123; newName -&gt;</span><br><span class="line">            <span class="comment">// Update the UI, in this case, a TextView.</span></span><br><span class="line">            mNameTextView.text = newName</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Observe the LiveData, passing in this activity as the LifecycleOwner and the observer.</span></span><br><span class="line">        mModel.currentName.observe(<span class="keyword">this</span>, nameObserver)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Attach the <a href="https://developer.android.com/reference/android/arch/lifecycle/Observer.html" target="_blank" rel="noopener"><code>Observer</code></a> object to the <a href="https://developer.android.com/reference/android/arch/lifecycle/LiveData.html" target="_blank" rel="noopener"><code>LiveData</code></a> object using the <a href="https://developer.android.com/reference/android/arch/lifecycle/LiveData.html#observe(android.arch.lifecycle.LifecycleOwner,%0Aandroid.arch.lifecycle.Observer%3CT%3E" target="_blank" rel="noopener"><code>observe()</code></a>) method. The <a href="https://developer.android.com/reference/android/arch/lifecycle/LiveData.html#observe(android.arch.lifecycle.LifecycleOwner,%0Aandroid.arch.lifecycle.Observer%3CT%3E" target="_blank" rel="noopener"><code>observe()</code></a>) method takes a <a href="https://developer.android.com/reference/android/arch/lifecycle/LifecycleOwner.html" target="_blank" rel="noopener"><code>LifecycleOwner</code></a> object. This subscribes the <a href="https://developer.android.com/reference/android/arch/lifecycle/Observer.html" target="_blank" rel="noopener"><code>Observer</code></a> object to the <a href="https://developer.android.com/reference/android/arch/lifecycle/LiveData.html" target="_blank" rel="noopener"><code>LiveData</code></a> object so that it is notified of changes. You usually attach the <a href="https://developer.android.com/reference/android/arch/lifecycle/Observer.html" target="_blank" rel="noopener"><code>Observer</code></a> object in a UI controller, such as an activity or fragment.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mButton.setOnClickListener &#123;</span><br><span class="line">    <span class="keyword">val</span> anotherName = <span class="string">"John Doe"</span></span><br><span class="line">    mModel.currentName.setValue(anotherName)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>This is a simple example that shows you how to use ViewModel and LiveData in Android. You can find more details in <a href="https://developer.android.com/topic/libraries/architecture/livedata" target="_blank" rel="noopener">this</a>.</p>
 
       
     </div>
@@ -498,8 +482,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/06/20/Thread-locks-in-java/" rel="next" title="Thread locks in java">
-                <i class="fa fa-chevron-left"></i> Thread locks in java
+              <a href="/2018/02/04/简述 Android 单元测试中常用的库/" rel="next" title="简述 Android 单元测试中常用的库">
+                <i class="fa fa-chevron-left"></i> 简述 Android 单元测试中常用的库
               </a>
             
           </div>
@@ -507,10 +491,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/02/04/简述 Android 单元测试中常用的库/" rel="prev" title="简述 Android 单元测试中常用的库">
-                简述 Android 单元测试中常用的库 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -668,7 +648,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#What-is-it"><span class="nav-number">1.</span> <span class="nav-text">What is it</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Interfaces-and-implementations"><span class="nav-number">2.</span> <span class="nav-text">Interfaces and implementations</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Algorithms"><span class="nav-number">3.</span> <span class="nav-text">Algorithms</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#How-to-use-ViewModel-with-LiveData"><span class="nav-number">1.</span> <span class="nav-text">How to use ViewModel with LiveData</span></a></li></ol></div>
             
 
           </div>
@@ -816,9 +796,9 @@
 
 <script>
   var disqus_config = function () {
-    this.page.url = "https://wolfhan.github.io/2017/06/26/Collections-in-java/";
-    this.page.identifier = "2017/06/26/Collections-in-java/";
-    this.page.title = 'Collections in java';
+    this.page.url = "https://wolfhan.github.io/2019/01/09/Use-of-ViewModel-with-LiveData-in-Android/";
+    this.page.identifier = "2019/01/09/Use-of-ViewModel-with-LiveData-in-Android/";
+    this.page.title = 'Use of ViewModel with LiveData in Android';
     };
   function loadComments () {
     var d = document, s = d.createElement('script');
